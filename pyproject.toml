@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "referral-system"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "isort>=6.0.0",
+    "pre-commit>=4.1.0",
+    "ruff>=0.9.7",
+]
+
+
+[tool.ruff]
+line-length = 88
+lint.ignore = ["B008"]
+lint.select = ["E", "F", "I", "B"]
+lint.fixable = ["ALL"]
+target-version = "py312"
+exclude = ["alembic"]
+
+[tool.isort]
+profile = "black"
+line_length = 88
+known_first_party = ["referral_system"]
+skip = ["alembic"]
