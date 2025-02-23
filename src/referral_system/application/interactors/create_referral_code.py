@@ -62,13 +62,13 @@ class CreateReferralCodeInteractor:
             created_by_user_id=user_id,
         )
 
-        referral_code: (
+        referral_code_from_storage: (
             ReferralCode | None
         ) = await self._referral_code_data_gateway.read_by_creator_id(
             creator_id=user_id
         )
 
-        if referral_code is None:
+        if referral_code_from_storage is not None:
             raise ReferralCodeAlreadyExists("You can only have one referral code.")
 
         await self._referral_code_data_gateway.add(referral_code=referral_code)
