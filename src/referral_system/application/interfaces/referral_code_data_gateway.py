@@ -1,7 +1,7 @@
 from abc import abstractmethod
 from typing import Protocol
 
-from referral_system.domain.entities.referral_code import ReferralCode
+from referral_system.domain.entities.referral_code import ReferralCode, ReferralCodeId
 from referral_system.domain.entities.user import UserId
 
 
@@ -11,3 +11,6 @@ class ReferralCodeDataGateway(Protocol):
 
     @abstractmethod
     async def read_by_creator_id(self, creator_id: UserId) -> ReferralCode | None: ...
+
+    @abstractmethod
+    async def delete(self, referral_code_id: ReferralCodeId) -> None: ...
