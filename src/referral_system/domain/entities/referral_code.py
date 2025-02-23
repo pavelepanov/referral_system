@@ -18,8 +18,11 @@ class ReferralCode:
     created_by_user_id: UserId
 
 
-def create_referral_code(
-    id: ReferralCodeId,
+
+
+
+
+def create_referral_code(id: ReferralCodeId,
     title: Title,
     expiration: Expiration,
     created_by_user_id: UserId,
