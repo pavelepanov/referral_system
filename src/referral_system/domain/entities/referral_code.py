@@ -1,7 +1,7 @@
 from dataclasses import dataclass
+from datetime import datetime
 from typing import NewType
 from uuid import UUID
-from datetime import datetime
 
 from referral_system.domain.entities.user import UserId
 
@@ -18,11 +18,8 @@ class ReferralCode:
     created_by_user_id: UserId
 
 
-
-
-
-
-def create_referral_code(id: ReferralCodeId,
+def create_referral_code(
+    id: ReferralCodeId,
     title: Title,
     expiration: Expiration,
     created_by_user_id: UserId,
