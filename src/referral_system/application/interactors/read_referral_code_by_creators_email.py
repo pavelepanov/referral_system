@@ -36,11 +36,10 @@ class ReadReferralCodeByCreatorsEmailInteractor:
     async def __call__(
         self, request_data: ReadReferralCodeByCreatorsEmailRequest
     ) -> ReadReferralCodeByCreatorsEmailResponse:
-        user_email: Email = await self._identity_provider.get_current_user_email()
         referral_code: (
             ReferralCode | None
         ) = await self._referral_code_data_gateway.read_by_creator_email(
-            email=user_email
+            email=request_data.email
         )
 
         if referral_code is None:
